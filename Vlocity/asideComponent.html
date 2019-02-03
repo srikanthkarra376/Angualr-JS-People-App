@@ -1,0 +1,10 @@
+      <div class="container">
+          <ul class="list-group" ng-repeat="people in peoples | filter:searchText">
+              <li style="cursor:pointer" class="list-group-item text-primary " ng-click="getDetails($index)">{{people.name}} 
+                <span class="float-right"><i class="far fa-arrow-alt-circle-right"></i>
+                </span>
+                
+              </li>
+          </ul>
+      </div>
+     
