@@ -16,11 +16,14 @@ PeopleAppModule.controller("peopleCtrl", function ($scope,$http) {
         }
       });
 
-    $scope.getDetails = function($index) {
+    $scope.getDetails = function(id) {
       $scope.StrLike = "Likes";
       $scope.StrdisLike = "DisLikes"; 
-      $scope.Rating = $scope.peoples[$index].rating;
-      $scope.MaxStar = 5;
+      $scope.Rating = $scope.peoples[id].rating;
+      $scope.MaxStar = 5; 
+      $scope.peopledetail = $scope.peoples[id];
+      $scope.dislikes = $scope.peoples[id].Dislikes;
+      $scope.likes = $scope.peoples[id].Likes;
       $scope.ratingArray = function(star) {
         var startArray = [];
         for (let i = 0; i < star; i++) {
@@ -28,10 +31,6 @@ PeopleAppModule.controller("peopleCtrl", function ($scope,$http) {
         }
         return startArray;
       };
-      
-      $scope.peopledetail = $scope.peoples[$index];
-      $scope.dislikes = $scope.peoples[$index].Dislikes;
-      $scope.likes = $scope.peoples[$index].Likes;
     }
   }) ; 
 
