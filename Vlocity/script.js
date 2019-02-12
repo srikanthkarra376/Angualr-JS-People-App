@@ -1,7 +1,8 @@
 var PeopleAppModule = angular.module("peopleApp", []);    
-PeopleAppModule.controller("peopleCtrl", function ($scope,$http) {
+PeopleAppModule.controller("peopleCtrl", function ($scope,$http,$timeout) {
   
  $scope.peoples = [];
+ 
  $scope.peopleNames=$scope.peoples.name;
  //$http service to get the peoples data
   $http({
@@ -17,6 +18,7 @@ PeopleAppModule.controller("peopleCtrl", function ($scope,$http) {
       });
 
     $scope.getDetails = function(id) {
+
       $scope.StrLike = "Likes";
       $scope.StrdisLike = "DisLikes"; 
       $scope.Rating = $scope.peoples[id].rating;
@@ -31,6 +33,22 @@ PeopleAppModule.controller("peopleCtrl", function ($scope,$http) {
         }
         return startArray;
       };
+    
+    }
+    $scope.showorhide=false;
+ 
+    $scope.messageForm = () => {
+    
+    prompt("Enter your message");
+    $scope.messageReply = "congratulations ! your message sent...";
+    $scope.showorhide=true;
+   $timeout( clearmessage = () => {
+   
+      $scope.messageReply = "";
+    },3000);
+   
+    
+    
     }
   }) ; 
 
